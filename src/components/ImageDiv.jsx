@@ -1,16 +1,17 @@
 import React from 'react'
 import { useState, useEffect  } from 'react';
 
-export default function ImageDiv({images, setImages}) {
-  
+export default function ImageDiv({ images }) {
+  const [image, setImage] = useState([]);
 
     async function getImage() {
         try {
-            const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=Seafood`;
+            const url = `https://www.themealdb.com/api/json/v1/1/filter.php?c=${images}`;
             console.log(url)
             const response = await fetch(url);
             const data = await response.json()
-            setImages(data.meals);
+            setImage(data.meals || []);
+            console.log(data.meals)
         } catch (error) {
           console.error('Error fetching images:', error);
         }
@@ -18,14 +19,14 @@ export default function ImageDiv({images, setImages}) {
 
     useEffect(() => { 
       getImage()
-  }, [])
+  }, [images])
 
   return (
     <div className='bg-[#FEFAE0] flex justify-center py-6'>
       <div className=" grid grid-cols-1 md:grid-cols-3 gap-4 px-4 py-6 ml-6 mt-6 mx-auto md:mx-auto md:ml-12 md:mr-12 md:gap-4 items-center">
         
         {
-          images.map((image) => {
+          image?.map((image) => {
             return (
               <img
               key={image.idMeal} 
