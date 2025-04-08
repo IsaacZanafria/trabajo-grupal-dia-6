@@ -24,7 +24,7 @@ export default function useData(url) {
 
         getData()
 
-    }, [ url ])
+    },[url])
 
     return {
         loading,
