@@ -18,14 +18,14 @@ export default function SlideModal({ isOpen, onClose }) {
     <>
       {/* Fondo oscuro detrás del modal */}
       <div
-        className={`fixed inset-0 bg-black bg-opacity-40 transition-opacity z-40 ${
+        className={`fixed inset-0 bg-black/50 transition-opacity z-40 ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={onClose}
       />
 
       {/* Modal deslizante */}
-      <div className={`fixed top-0 right-0 h-full w-80 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out
+      <div className={`fixed top-0 right-0 h-full w-80 bg-[#FEFAE0] shadow-lg z-50 transform transition-transform duration-300 ease-in-out
         ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
 
         {/* Encabezado con logo y botón cerrar */}
@@ -36,17 +36,17 @@ export default function SlideModal({ isOpen, onClose }) {
             className="w-28 object-contain"
           />
           <button onClick={onClose}>
-            <X className="w-6 h-6 text-gray-600 hover:text-black transition" />
+            <X className="w-6 h-6 text-gray-600 hover:text-black transition cursor-pointer" />
           </button>
         </div>
 
         {/* Contenido del modal */}
-        <div className="p-4 space-y-4 overflow-y-auto max-h-[90vh]">
+        <div className="p-4 space-y-4 overflow-y-auto max-h-[90vh] bg-white">
           {categories.length > 0 ? (
             categories.map((cat) => (
               <div
                 key={cat.idCategory}
-                className="flex gap-3 items-start border rounded-lg p-3 hover:bg-gray-100 transition"
+                className="flex gap-3 items-start border rounded-lg p-3 bg-gray-200 hover:bg-gray-300 transition cursor-pointer"
               >
                 <img
                   src={cat.strCategoryThumb}
@@ -55,7 +55,7 @@ export default function SlideModal({ isOpen, onClose }) {
                 />
                 <div>
                   <h3 className="font-bold">{cat.strCategory}</h3>
-                  <p className="text-sm text-gray-600">
+                  <p className="text-sm text-gray-800">
                     {cat.strCategoryDescription.slice(0, 80)}...
                   </p>
                 </div>

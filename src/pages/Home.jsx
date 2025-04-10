@@ -5,8 +5,8 @@ import ImageDiv from '../components/ImageDiv'
 export default function Home() {
   return (
     <>
-     <SearchBar/> 
-     <ImageDiv/>
+      <SearchBar />
+      <ImageDiv />
     </>
   )
 }
