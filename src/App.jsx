@@ -1,3 +1,5 @@
+import { Link, Route, Routes } from "react-router";
+import Home from "./pages/Home";
 import { useState } from "react";
 import SlideModal from "./components/SlideModal.jsx";
 import menuIcon from "./assets/menu.png";
@@ -5,9 +7,9 @@ import gusteauLogo from "./assets/gusteau-logo.webp";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
-
   return (
-    <div className="min-h-screen bg-gray-100 relative">
+    <>
+      <div className="min-h-screen bg-gray-100 relative">
       {/* Logo fijo arriba a la izquierda */}
       <img
         src={gusteauLogo}
@@ -27,5 +29,12 @@ export default function App() {
       {/* Modal lateral */}
       <SlideModal isOpen={modalOpen} onClose={() => setModalOpen(false)} />
     </div>
-  );
+
+      <Routes>
+        <Route path='/:id?' element={<Home />} />
+      </Routes>
+
+    </>
+  )
+
 }
