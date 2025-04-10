@@ -12,16 +12,16 @@ export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
   return (
     <>
-      <div className="h-22 w-full bg-[#D4A373]  sticky top-0 z-40">
+      <div className="h-22 w-full bg-[#D4A373]  sticky top-0 z-40 border-b border-b-gray-900">
         {/* Logo fijo arriba a la izquierda */}
         <div className="h-full items-center justify-around flex">
           <img
             src={gusteauLogo}
-            alt="Restaurant Gusteau's"
+            alt="Gusteau's Restaurant"
             className=" w-22"
           />
 
-          <p className="text-[#513d33] font-bold hover:text-[#0c0806] active:text-[#342821]"><Link to="/">Home</Link></p>
+          <p className="text-[#513d33] text-2xl font-bold hover:text-[#0c0806] active:text-[#342821]"><Link to="/">Home</Link></p>
         </div>
         {/* Botón menú abajo a la derecha */}
         <button

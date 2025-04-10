@@ -3,7 +3,7 @@ import React from 'react'
 export default function InfPlatos() {
     return (
         <>
-            <section className='bg-[#FEFAE0] h-full flex flex-col items-center gap-4'>
+            <section className='bg-[url(./fondo.jpg)] h-full flex flex-col items-center gap-4'>
 
                 <h1 className='text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mt-4 md:mt-6'>Spicy Arrabiata Penne</h1>
 
@@ -24,7 +24,7 @@ export default function InfPlatos() {
                 <div className='bg-[#b68a5e] w-65 md:w-75 lg:w-85 shadow-md p-3 flex justify-around rounded-xl mb-8 tracking-tight'>
                     <div className='w-20 flex flex-col items-center '>
                         <p className='font-bold md:text-lg lg:text-xl my-2'>INGREDIENT</p>
-                        <ul className='font-semibold lg:text-lg'>
+                        <ol className='list-decimal font-semibold lg:text-lg'>
                             <li>arroz</li>
                             <li>harina</li>
                             <li>arroz</li>
@@ -45,7 +45,7 @@ export default function InfPlatos() {
                             <li>harina</li>
                             <li>arroz</li>
                             <li>harina</li>
-                        </ul>
+                        </ol>
                     </div>
                     <div className='w-20 flex flex-col items-center '>
                         <p className='font-bold md:text-lg lg:text-xl my-2'>MEASURE</p>

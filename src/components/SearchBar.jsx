@@ -26,18 +26,18 @@ export default function SearchGen() {
 
 
     return (
-        <div className="w-full h-70 lg-h-100 bg-[url(./rest1.jpg)] bg-center bg-no-repeat bg-cover">
-            <h1 className="text-center font-bold text-dxl text-white drop-shadow-[0_0_8px_black] h-1/2 py-8 md:text-5xl lg:text-6xl">Restaurant Museum's</h1>
+        <div className="w-full h-70 lg:h-100 bg-[url(./rest1.jpg)] bg-center bg-no-repeat bg-cover">
+            <h1 className="text-center font-bold text-4xl text-white drop-shadow-[0_4px_2px_black] h-1/2 py-8 md:text-5xl lg:text-6xl">Restaurant Gusteau's</h1>
             <div className="flex flex-row justify-center items-center px-10 py-2 md:flex-row md:h-1/2 md:px-30 lg:px-50">
                 <input 
-                    className="w-full h-10 border px-2 border-white text-white bg-gray-680/70 rounded-l-md"
+                    className="w-full h-10 bg-gray-700/70 hover:bg-gray-700/95 focus:bg-gray-700/95 border px-2 border-white text-white bg-gray-680/70 rounded-l-md cursor-pointer"
                     placeholder="Search..."
                     type="text"
                     value={inpValue}
                     onChange={handleInputChange}
                 />
                 <button
-                    className="w-fit h-10 border px-2 border-white text-white bg-gray-380/70 cursor-pointer rounded-r-md"
+                    className="w-fit h-10 bg-white/70 hover:bg-white/95 active:bg-gray-500/90 border px-2 border-white text-white bg-gray-380/70  rounded-r-md cursor-pointer"
                     onClick={handleClick}
 
                 >
