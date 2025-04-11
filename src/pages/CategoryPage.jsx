@@ -24,7 +24,7 @@ export default function CategoryPage() {
     name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 
   return (
-    <div className="bg-[url(/fondo.jpg)]">
+    <div className="bg-[url(/fondo.jpg)] min-h-screen">
     <div className=" p-6 max-w-6xl mx-auto">
       <h1 className="text-3xl font-bold mb-6 text-center drop-shadow-[0_2px_2px_white]">
         Platos de {formatCategory(categoryName)}

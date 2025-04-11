@@ -39,7 +39,7 @@ export default function App() {
       <Routes>
         <Route path='/:id?' element= {<Home />} />
         <Route path="/categoria/:categoryName" element={<CategoryPage />} />
-     <Route path="/plato/:idMeal" element={<InfPlatos />} />
+        <Route path="/plato/:idMeal" element={<InfPlatos />} />
       </Routes>
 
     </>
