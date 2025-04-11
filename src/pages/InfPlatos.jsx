@@ -1,82 +1,65 @@
-import React from 'react'
+import { useEffect, useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export default function InfPlatos() {
+  const { idMeal } = useParams();
+  const [meal, setMeal] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (idMeal) {
+      axios
+        .get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}`)
+        .then((res) => setMeal(res.data.meals[0]))
+        .catch((err) => console.error("Error al cargar el plato:", err));
+    }
+  }, [idMeal]);
+
+  if (!meal) return <p className="text-center mt-10 text-gray-500">Cargando información del plato...</p>;
+
   return (
-    <>
-    <nav className='bg-gray-800 h-10 w-full'> 
-    </nav>
-    <section className='bg-[#FEFAE0] h-full flex flex-col items-center gap-4'>
+  <div className="bg-[url(/fondo.jpg)]">
+    <div className=" max-w-4xl mx-auto p-6">
+      <button
+        onClick={() => navigate(`/categoria/${meal.strCategory}`)}
+        className="mb-6 px-4 py-2 bg-[#D4A373] text-white font-semibold rounded hover:bg-[#B97A57] transition"
+      >
+        ← Volver a {meal.strCategory}
+      </button>
 
-        <h1 className='text-2xl md:text-4xl lg:text-5xl font-bold tracking-tight mt-4 md:mt-6'>Spicy Arrabiata Penne</h1>
+      <div className="bg-white rounded shadow p-6">
+        <h1 className="text-3xl font-bold mb-4">{meal.strMeal}</h1>
+        <img
+          src={meal.strMealThumb}
+          alt={meal.strMeal}
+          className="w-full max-h-[400px] object-cover rounded mb-6"
+        />
 
-        <div className='w-65 md:w-80 md:text-lg lg:text-xl md:my-3 lg:my-5 shadow-md flex flex-col items-center md:flex-row md:justify-around'>
-            <p className='font-semibold tracking-tight'>CATEGORY: <span className='font-light'>Vegetarian</span></p>
-            <p className='font-semibold tracking-tight'>AREA: <span className='font-light'>Italian</span></p>
-        </div>
+        <h2 className="text-xl font-semibold mb-2">Instrucciones</h2>
+        <p className="text-gray-700 whitespace-pre-line">{meal.strInstructions}</p>
 
-        <h2 className='font-semibold tracking-tight md:text-lg lg:text-xl'>PREPARATION</h2>
-        <iframe className='w-[90%] lg:w-230 h-60 md:h-100 lg:h-130 rounded-2xl' src="https://www.youtube.com/embed/1IszT_guI08?si=U6zjxO2tlwgos6dW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        
-        <div className='bg-[#f5cda2] w-[90%] shadow-md p-3 flex flex-col items-center rounded-lg'>
-        <h2 className='font-semibold mb-2 tracking-tight md:text-lg lg:text-xl'>INSTRUCTIONS</h2>
-        <p className='text-sm md:text-base lg:text-lg
-         text-justify tracking-tight '>Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.</p>
-        </div>
+        <h2 className="text-xl font-semibold mt-6 mb-2">Categoría: {meal.strCategory}</h2>
+        <h3 className="text-md font-medium text-gray-600">Área: {meal.strArea}</h3>
 
-        <div className='bg-[#b68a5e] w-65 md:w-75 lg:w-85 shadow-md p-3 flex justify-around rounded-xl mb-8 tracking-tight'>
-            <div className='w-20 flex flex-col items-center '>
-                <p className='font-bold md:text-lg lg:text-xl my-2'>INGREDIENT</p>
-                <ul className='font-semibold lg:text-lg'>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                    <li>arroz</li>
-                    <li>harina</li>
-                </ul>
-            </div>
-            <div className='w-20 flex flex-col items-center '>
-                <p className='font-bold md:text-lg lg:text-xl my-2'>MEASURE</p>
-                <ul className='lg:text-lg'>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                    <li>100 gr</li>
-                    <li>300gr</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    </>
-  )
+        {/* Mostrar video si existe el enlace */}
+        {meal.strYoutube && (
+          <div className="mt-6">
+            <h2 className="text-xl font-semibold mb-2">Video de preparación</h2>
+            <iframe
+              width="100%"
+              height="400"
+              src={`https://www.youtube.com/embed/${meal.strYoutube.split('v=')[1]}`}
+              title="Video de preparación"
+              frameBorder="0"
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        )}
+      </div>
+    </div>
+    </div>
+  );
 }
+
