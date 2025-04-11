@@ -1,7 +1,7 @@
 import React from 'react'
 import useData from '../hooks/useData'
 import InfPlatos from '../pages/InfPlatos'
-import { Link, Routes, Route, useParams } from 'react-router'
+import { Routes, Route, useParams } from 'react-router'
 
 
 export default function ImageDiv() {
@@ -18,12 +18,12 @@ export default function ImageDiv() {
           response?.meals?.map((image) => {
             return (
             
-                <Link to={`/inf`}><img
+                <img
                   key={image.idMeal}
                   className="aspect-video w-80 h-60 object-cover rounded-xl shadow-gray-900 shadow-lg hover:scale-104 hover:border-3 hover:border-[#342821] active:border-[#5a4539] cursor-pointer"
                   src={image.strMealThumb}
                   alt={image.strMeal} />
-                </Link> 
+                 
              
             )
           })

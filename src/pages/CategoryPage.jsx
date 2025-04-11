@@ -24,15 +24,16 @@ export default function CategoryPage() {
     name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
 
   return (
-    <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-center">
+    <div className="bg-[url(/fondo.jpg)]">
+    <div className=" p-6 max-w-6xl mx-auto">
+      <h1 className="text-3xl font-bold mb-6 text-center drop-shadow-[0_2px_2px_white]">
         Platos de {formatCategory(categoryName)}
       </h1>
 
       {meals.length === 0 ? (
         <p className="text-center text-gray-500">No se encontraron platos para esta categoría.</p>
       ) : (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6 ">
           {meals.map((meal) => (
             <div
               key={meal.idMeal}
@@ -49,6 +50,7 @@ export default function CategoryPage() {
           ))}
         </div>
       )}
+    </div>
     </div>
   );
 }
