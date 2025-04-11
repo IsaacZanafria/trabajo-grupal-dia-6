@@ -1,12 +1,11 @@
-import { Link, Route, Routes } from "react-router";
-import Home from "./pages/Home.jsx";
+import { Link, Route, Routes } from "react-router-dom";
 import { useState } from "react";
 import SlideModal from "./components/SlideModal.jsx";
 import menuIcon from "./assets/menu.png";
 import gusteauLogo from "./assets/gusteau-logo.webp";
-import InfPlatos from './pages/InfPlatos'
-
-
+import Home from "./pages/Home.jsx";
+import CategoryPage from "./pages/CategoryPage.jsx";
+import InfPlatos from "./pages/InfPlatos.jsx";
 
 export default function App() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -39,7 +38,8 @@ export default function App() {
 
       <Routes>
         <Route path='/:id?' element= {<Home />} />
-        <Route path='/inf'element={<InfPlatos/>}/>
+        <Route path="/categoria/:categoryName" element={<CategoryPage />} />
+     <Route path="/plato/:idMeal" element={<InfPlatos />} />
       </Routes>
 
     </>

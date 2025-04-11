@@ -10,8 +10,8 @@ export default function SlideModal({ isOpen, onClose }) {
 
   // Función para manejar la navegación al hacer clic en una categoría
   const handleCategoryClick = (category) => {
-    navigate(`/${category.strCategory}`);
-    onClose(); // Cierra el modal después de navegar
+    navigate(`/categoria/${category.strCategory}`);
+    onClose(); // cierra el modal
   };
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function SlideModal({ isOpen, onClose }) {
           <img
             src={gusteauLogo}
             alt="Restaurant Gusteau's"
-            className="w-28 object-contain"
+            className="w-15 object-contain"
           />
           <button onClick={onClose}>
             <X className="w-6 h-6 text-gray-600 hover:text-black transition cursor-pointer" />
